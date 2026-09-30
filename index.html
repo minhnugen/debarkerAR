@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading 3D Model...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            text-align: center;
+        }
+        .loader {
+            border: 4px solid #d2d2d7;
+            border-top: 4px solid #0071e3;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: #0071e3;
+            color: white;
+            text-decoration: none;
+            border-radius: 980px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader"></div>
+    <h2>Opening Sawmill Debarker in AR...</h2>
+    <p>If the model doesn't open automatically, tap the button below:</p>
+
+    <!-- The rel="ar" tag signals iOS Safari to launch AR Quick Look -->
+    <a id="ar-link" rel="ar" href="https://dropbox.com" class="btn">
+        View 3D Model
+    </a>
+
+    <script>
+        // Automatically triggers the AR Viewer the moment the layout is ready
+        window.addEventListener('DOMContentLoaded', () => {
+            const arLink = document.getElementById('ar-link');
+            if (arLink) {
+                arLink.click();
+            }
+        });
+    </script>
+
+</body>
+</html>
