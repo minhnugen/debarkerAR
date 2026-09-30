@@ -3,12 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebAR Experience</title>
+    <title>AR Quick Look - Sawmill Debarker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        p {
+            font-size: 14px;
+            color: #86868b;
+            margin-bottom: 24px;
+        }
+        .ar-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+        /* Custom AR Button styling */
+        .ar-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #0071e3;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .ar-button:active {
+            background-color: #005bb5;
+        }
+        .ar-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
 </head>
-  <body>
-    <div>
-      <a id="ar-link" rel="ar" href="https://dl.dropbox.com/scl/fi/0ys4x97pu0w2jf45myvqz/Sawmill_Debarker.usdz?rlkey=5qhnzgz8yecnnxe9ttsjym7pz&st=n4ikn5d8&dl=1">
-      </a>
+<body>
+
+    <div class="container">
+        <h1>Sawmill Debarker</h1>
+        <p>Tap the button below on your iPhone or iPad to open the 3D model in your space.</p>
+        
+        <!-- The rel="ar" tag paired with the modified direct-download Dropbox link -->
+        <a class="ar-link" rel="ar" href="https://dl.dropbox.com/scl/fi/0ys4x97pu0w2jf45myvqz/Sawmill_Debarker.usdz?rlkey=5qhnzgz8yecnnxe9ttsjym7pz&st=qjyc2y6p&raw=1">
+            <div class="ar-button">
+                <!-- Visual anchor: SVG representation of Apple's AR cube glyph -->
+                <svg class="ar-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                View in AR
+            </div>
+        </a>
     </div>
-  </body>
+
+</body>
 </html>
+
