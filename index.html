@@ -9,12 +9,58 @@
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"
     ></script>
+
+      <style>
+    #ar-button {
+      width: 120px;
+      height: 60px;
+    }
+        .hotspot {
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    border: none;
+                    background-color: blue;
+                    box-sizing: border-box;
+                    pointer-events: none;
+                  }
+
+                  .hotspot[slot="hotspot-hand"] {
+                    --min-hotspot-opacity: 0;
+                    background-color: red;
+                  }
+
+                  .hotspot[slot="hotspot-foot"]:not([data-visible]) {
+                    background-color: transparent;
+                    border: 3px solid blue;
+                  }
+
+                  .annotation {
+                    background-color: #888888;
+                    position: absolute;
+                    transform: translate(10px, 10px);
+                    border-radius: 10px;
+                    padding: 10px;
+                  }
+
+                  model-viewer > .annotation {
+                    transform: translate(10px, 10px);
+                  }
+
+                  @media only screen and (max-width: 800px) {
+                    model-viewer > .annotation {
+                      transform: translate(4.5rem, 10px);
+                    }
+                  }
+
+                  /* This keeps child nodes hidden while the element loads */
+                  :not(:defined)>* {
+                    display: none;
+                  }
+  </style>
     
-
-
-
-
-    <title>The Debarker AR</title>
+<title>The Debarker AR</title>
   </head>
   <body>
     <model-viewer
@@ -29,13 +75,10 @@
       ar
     >
       <button id="ar-button" slot="ar-button">Start AR</button>
+      <button class="hotspot" slot="hotspot-hand" data-position="-0.54 0.93 0.1" data-normal="-0.73 0.05 0.69">
+                    <div class="annotation">This hotspot disappears completely</div>
+      </button>
     </model-viewer>
   </body>
 
-  <style>
-    #ar-button {
-      width: 120px;
-      height: 60px;
-    }
-  </style>
 </html>
